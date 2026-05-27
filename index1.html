@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="stylesheet1.css">
+  <title>SportFit - Ropa Deportiva</title>
+  <!-- Tipografia -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header" id="inicioPage">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="SportFit - Inicio">
+        <img src="img/logo nike.jpg" alt="Logo nike" class="logo" />
+        <span class="brand-name">SportFit</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button id="btn-menu" class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+          <i class="fa fa-bars" aria-hidden="true"></i><span class="sr-only">Menú</span>
+        </button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#inicioPage">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li>
+            <button id="cart-toggle" class="nav-btn" aria-expanded="false" aria-controls="carrito" aria-label="Abrir carrito">Carrito</button>
+          </li>
+          <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner container">
+        <h1 id="hero-title">SportFit — Tu ropa deportiva, al mejor rendimiento</h1>
+        <p class="hero-sub">Calidad, confort y diseño para tu entrenamiento diario.</p>
+
+        <!-- imágenes en carpeta images/ -->
+        <div class="carousel" id="carousel" aria-label="Carrusel de promociones">
+          
+          <div class="carousel-track">
+            <img src="img/zapatillas.png" alt="Promo zapatillas" class="carousel-item">
+            <img src="img/remera entrenamiento.jpg" alt="Promo remera deportiva" class="carousel-item">
+            <img src="img/conjunto.jpg" alt="Promo conjunto entrenamiento" class="carousel-item">
+          </div>
+          <button class="carousel-prev" aria-label="Anterior">&lt;</button>
+          <button class="carousel-next" aria-label="Siguiente">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos" class="section productos" aria-labelledby="productos-title">
+      <div class="container">
+        <span class="decor-line" aria-hidden="true"></span>
+        <h2 id="productos-title">Productos</h2>
+        <p class="section-desc">Explorá nuestra selección de indumentaria deportiva — remeras, shorts, buzos y accesorios.</p>
+
+        <!-- Filtros -->
+        <div class="productos-controls">
+          <label for="filter-category">Categoría:</label>
+          <select id="filter-category" aria-label="Filtrar por categoría">
+            <option value="todos">Todos</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="accesorios">Accesorios</option>
+          </select>
+
+          <label for="search-product" class="sr-only">Buscar producto</label>
+          <input id="search-product" type="search" placeholder="Buscar producto..." aria-label="Buscar producto" />
+        </div>
+
+        <!-- Contenedor de tarjetas  -->
+        <div id="productos-lista" class="productos-lista" role="list">
+          
+        </div>
+
+        <!-- Plantilla de producto -->
+        <template id="tpl-producto">
+          <article class="producto-card" role="listitem">
+            <div class="producto-media">
+              <img src="img/dry-fit.jpg" alt="Nombre del producto" class="producto-imagen" />
+            </div>
+            <div class="producto-body">
+              <h3 class="producto-nombre">Nombre producto</h3>
+              <p class="producto-desc">Descripción corta del producto</p>
+              <div class="producto-meta">
+                <span class="producto-precio">$0.00</span>
+                
+                <button class="btn-agregar" type="button" aria-label="Agregar al carrito">Añadir</button>
+              </div>
+            </div>
+          </article>
+        </template>
+
+      </div>
+    </section>
+
+    <!-- Sobre nosotros -->
+    <section id="sobre-nosotros" class="section sobre-nosotros" aria-labelledby="sobre-title">
+      <div class="container">
+        <span class="decor-line" aria-hidden="true"></span>
+        <h2 id="sobre-title">Sobre Nosotros</h2>
+        <div class="sobre-grid">
+          <div class="sobre-text">
+            <p>SportFit nació para acompañar a las personas activas con indumentaria técnica, cómoda y con estilo. Nuestra misión es que te sientas bien mientras te movés.</p>
+            <ul>
+              <li>Materiales transpirables</li>
+              <li>Tecnología de secado rápido</li>
+              <li>Compromiso con la sustentabilidad</li>
+            </ul>
+          </div>
+          <figure class="sobre-image">
+            <img src="img/conjunto dry fit.jpg" alt="Equipo SportFit" />
+            <figcaption>Nuestro equipo y talleres.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section contacto" aria-labelledby="contacto-title">
+      <div class="container">
+        <span class="decor-line" aria-hidden="true"></span>
+        <h2 id="contacto-title">Contacto</h2>
+        <p>Tenés una duda o querés realizar un pedido mayorista? Completá el formulario y te respondemos a la brevedad.</p>
+
+        <form id="contact-form" class="form-contacto" novalidate>
+          <div class="form-row">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" required minlength="2" placeholder="Tu nombre" />
+            <span class="error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" required placeholder="tu@ejemplo.com" />
+            <span class="error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="asunto">Asunto</label>
+            <input id="asunto" name="asunto" type="text" required placeholder="Motivo del mensaje" />
+            <span class="error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required minlength="10" placeholder="Escribí tu mensaje..."></textarea>
+            <span class="error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Enviar mensaje</button>
+            <button type="reset" class="btn-secondary">Limpiar</button>
+          </div>
+
+          <!-- muestra mensajes de éxito/error manejados por js -->
+          <div id="form-feedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Carrito -->
+  <aside id="carrito" class="cart" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-header">
+      <h3 id="cart-title">Tu carrito</h3>
+      <button id="cart-close" aria-label="Cerrar carrito">✕</button>
+    </div>
+
+    <div class="cart-body">
+      <ul id="cart-items" class="cart-items" role="list">
+        <!-- Items se llenan dinámicamente -->
+      </ul>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <strong id="cart-total">$0</strong>
+      </div>
+      <div class="cart-actions">
+        <button id="cart-clear" class="btn-secondary" type="button">Vaciar</button>
+        <button id="cart-checkout" class="btn-primary" type="button">Pagar</button>
+      </div>
+    </div>
+
+    <template id="tpl-cart-item">
+      <li class="cart-item" role="listitem">
+        <img class="cart-item-img" src="" alt="" />
+        <div class="cart-item-body">
+          <div class="cart-item-title">Nombre producto</div>
+          <div class="cart-item-price">$0</div>
+          <div class="cart-item-controls">
+            <label>cant: <input class="cart-item-qty" type="number" min="1" value="1" /></label>
+            <button class="cart-item-remove" type="button">Eliminar</button>
+          </div>
+        </div>
+      </li>
+    </template>
+  </aside>
+
+  <div id="cart-overlay" class="cart-overlay" hidden></div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-about">
+        <p>&copy; <span id="year"></span> SportFit. Todos los derechos reservados.</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram SportFit"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook SportFit"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter SportFit"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- link a js -->
+  
+  <script src="main1.js"></script>
+</body>
+</html>
